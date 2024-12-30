@@ -5,7 +5,7 @@ import asyncio
 import requests
 import os
 
-Token = '5832518494:AAG2TZ9XiHw_HlfFAiJq8gzFes8JT-TjzAk'
+Token = str(input("enter your bot API: "))
 
 bot = Bot(token=Token)
 dp = Dispatcher()
@@ -43,5 +43,5 @@ async def main() -> None:
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    print('Bot is running...')
+    print('\nBot is running...')
     asyncio.run(main())
